@@ -33,9 +33,18 @@ class MovieList extends Component {
 		}
 	}
 
+	nominateMovieHandler = (imdb) => {
+		for (let movie in this.state.list) {
+			if (this.state.list[movie].imdbID === imdb) {
+				console.log(this.state.list[movie]);
+			}
+		}
+	};
+
 	render() {
-		
-		return <Card list={this.state.list} />;
+		return (
+			<Card list={this.state.list} nominateMovie={this.nominateMovieHandler} />
+		);
 	}
 }
 

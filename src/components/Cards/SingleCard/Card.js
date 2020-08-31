@@ -20,7 +20,9 @@ const card = (props) => {
 							</div>
 							<CardPoster Title={Title} Poster={usePoster} imdbID={imdbID} />
 							<p className="releaseYear">{Year}</p>
-							<Button>Nominate</Button>
+							<Button clicked={() => props.nominateMovie(imdbID)}>
+								Nominate
+							</Button>
 						</div>
 					);
 				})}
