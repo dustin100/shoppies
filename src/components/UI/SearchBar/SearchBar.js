@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import MovieList from '../../../containers/MovieList/MovieList';
+import NominatedList from '../../../containers/NominatedList/NominatedList'
 
 class SearchBar extends Component {
 	constructor(props) {
@@ -48,6 +49,7 @@ class SearchBar extends Component {
 					</form>
 				</div>
 				<MovieList submittedSearch={this.state.submittedSearch} />
+				<NominatedList />
 			</Fragment>
 		);
 	}

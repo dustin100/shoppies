@@ -23,8 +23,20 @@ class MovieList extends Component {
 					s: this.props.submittedSearch,
 				},
 			});
+			// checks to see if item is already in the nomList.
+			// if it is it will be disabled via props so that it can't be added again
+			let editedObject = listRequest.data.Search.map((item) => {
+				if (this.state.storeImdbID.includes(item.imdbID)) {
+					item.disabled = true;
+				}else {
+					item.disabled = false;
+
+				}
+				return item;
+			});
+
 			this.setState({
-				list: listRequest.data.Search,
+				list: editedObject,
 			});
 		} catch (err) {
 			console.log(err);
@@ -73,9 +85,10 @@ class MovieList extends Component {
 		return (
 			<Card
 				list={this.state.list}
-				onNominateMovie={this.nominateMovieHandler}
-				nomList={this.state.nomList}
+				onButtonClick={this.nominateMovieHandler}
 				storeImdbID={this.state.storeImdbID}
+				buttonText="Nominate"
+				disabled = {this.state.list.disabled}
 			/>
 		);
 	}

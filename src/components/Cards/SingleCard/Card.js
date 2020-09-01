@@ -7,13 +7,13 @@ const card = (props) => {
 	return (
 		<main className=" wrapper">
 			<div className="cardWrapper">
-				{props.list.map(({ Title, imdbID, Poster, Year }) => {
+				{props.list.map(({ Title, imdbID, Poster, Year, disabled }) => {
 					// if poster is missing adds a default image
 					let usePoster = Poster;
 					if (Poster === `N/A`) {
 						usePoster = posterDefault;
 					}
-				
+
 					return (
 						<div className="card" tabIndex="0" key={imdbID}>
 							<div className="cardTop">
@@ -22,10 +22,10 @@ const card = (props) => {
 							<CardPoster Title={Title} Poster={usePoster} imdbID={imdbID} />
 							<p className="releaseYear">{Year}</p>
 							<Button
-								disabled={props.storeImdbID.includes(imdbID)}
-								clicked={() => props.onNominateMovie(imdbID)}
+								disabled={disabled}
+								clicked={() => props.onButtonClick(imdbID)}
 							>
-								Nominate
+								{props.buttonText}
 							</Button>
 						</div>
 					);
