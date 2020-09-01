@@ -13,6 +13,9 @@ const card = (props) => {
 					if (Poster === `N/A`) {
 						usePoster = posterDefault;
 					}
+
+					// check if movie is in props.nomList matches clicked item
+					// if it is disable the button
 					return (
 						<div className="card" tabIndex="0" key={imdbID}>
 							<div className="cardTop">
@@ -20,7 +23,7 @@ const card = (props) => {
 							</div>
 							<CardPoster Title={Title} Poster={usePoster} imdbID={imdbID} />
 							<p className="releaseYear">{Year}</p>
-							<Button clicked={() => props.nominateMovie(imdbID)}>
+							<Button clicked={() => props.onNominateMovie(imdbID)}>
 								Nominate
 							</Button>
 						</div>
