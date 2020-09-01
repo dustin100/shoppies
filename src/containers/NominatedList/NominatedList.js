@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Card from '../../components/Cards/SingleCard/Card';
+import Cards from '../../components/Cards/Cards';
 import firebase from '../../firebase';
-import MovieList from '../MovieList/MovieList';
 
 class NominatedList extends Component {
 	constructor(props) {
@@ -46,7 +45,7 @@ class NominatedList extends Component {
 
 	render() {
 		return (
-			<Card
+			<Cards
 				list={this.state.nomList}
 				onButtonClick={this.removeNominationHandler}
 				nomList={this.state.nomList}

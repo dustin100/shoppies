@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Card from '../../components/Cards/SingleCard/Card';
+import Cards from '../../components/Cards/Cards';
 import firebase from '../../firebase';
 
 class MovieList extends Component {
@@ -83,7 +83,7 @@ class MovieList extends Component {
 
 	render() {
 		return (
-			<Card
+			<Cards
 				list={this.state.list}
 				onButtonClick={this.nominateMovieHandler}
 				storeImdbID={this.state.storeImdbID}
