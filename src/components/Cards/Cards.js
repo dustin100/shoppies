@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Card from './SingleCard/Card';
-import Button from '../UI/Button/Button';
 import posterDefault from '../../assets/no-poster-available.jpg';
+import classes from './Cards.module.css';
 
 const cards = (props) => {
 	return (
-		<main className=" wrapper">
-			<div className="cardWrapper">
+		<section className="wrapper">
+			<div className={classes.Cards}>
 				{props.list.map(({ Title, imdbID, Poster, Year, disabled }) => {
 					// if poster is missing adds a default image
 					let usePoster = Poster;
@@ -15,25 +15,19 @@ const cards = (props) => {
 					}
 
 					return (
-						<Fragment>
-							<Card
-								key={imdbID}
-								Title={Title}
-								usePoster={usePoster}
-								Year={Year}
-								disabled={disabled}
-							/>
-							<Button
-								disabled={disabled}
-								clicked={() => props.onButtonClick(imdbID)}
-							>
-								{props.buttonText}
-							</Button>
-						</Fragment>
+						<Card
+							key={imdbID}
+							Title={Title}
+							usePoster={usePoster}
+							Year={Year}
+							disabled={disabled}
+							clicked={() => props.onButtonClick(imdbID)}
+							buttonText={props.buttonText}
+						/>
 					);
 				})}
 			</div>
-		</main>
+		</section>
 	);
 };
 export default cards;
