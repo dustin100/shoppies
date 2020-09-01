@@ -9,6 +9,7 @@ class MovieList extends Component {
 		this.state = {
 			list: [],
 			nomList: [],
+			storeImdbID: [],
 		};
 	}
 
@@ -36,12 +37,15 @@ class MovieList extends Component {
 		dbRef.on('value', (result) => {
 			const data = result.val();
 			const nomsInArray = [];
+			const storeImdbID = [];
 			for (let key in data) {
 				nomsInArray.push(data[key]);
+				storeImdbID.push(data[key].imdbID);
 			}
 
 			this.setState({
 				nomList: nomsInArray,
+				storeImdbID: storeImdbID,
 			});
 		});
 	}
@@ -52,6 +56,7 @@ class MovieList extends Component {
 		}
 	}
 
+	//  When nominate button is clicked it stores movie details in Firebase
 	nominateMovieHandler = (imdb) => {
 		const dbRef = firebase.database().ref();
 		for (let movie in this.state.list) {
@@ -70,6 +75,7 @@ class MovieList extends Component {
 				list={this.state.list}
 				onNominateMovie={this.nominateMovieHandler}
 				nomList={this.state.nomList}
+				storeImdbID={this.state.storeImdbID}
 			/>
 		);
 	}
