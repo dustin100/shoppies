@@ -1,8 +1,9 @@
 import React from 'react';
+import classes from './CardTop.module.css';
 
 const cardTop = (props) => {
 	return (
-		<div className="cardTop">
+		<div className={classes.CardTop}>
 			<h2>{props.Title}</h2>
 			<p className="releaseYear">{props.Year}</p>
 		</div>

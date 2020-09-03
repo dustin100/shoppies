@@ -10,6 +10,7 @@ class MovieList extends Component {
 			list: [],
 			nomList: [],
 			storeImdbID: [],
+			count: 0,
 		};
 	}
 
@@ -25,12 +26,11 @@ class MovieList extends Component {
 			});
 			// checks to see if item is already in the nomList.
 			// if it is it will be disabled via props so that it can't be added again
-			let editedObject = listRequest.data.Search.map((item) => {
+			const editedObject = listRequest.data.Search.map((item) => {
 				if (this.state.storeImdbID.includes(item.imdbID)) {
 					item.disabled = true;
-				}else {
+				} else {
 					item.disabled = false;
-
 				}
 				return item;
 			});
@@ -46,8 +46,8 @@ class MovieList extends Component {
 	componentDidMount() {
 		// grabs data from firebase and coverts the object into an array and adds it to state
 		const dbRef = firebase.database().ref();
-		dbRef.on('value', (result) => {
-			const data = result.val();
+		dbRef.on('value', (snapshot) => {
+			const data = snapshot.val();
 			const nomsInArray = [];
 			const storeImdbID = [];
 			for (let key in data) {
@@ -79,16 +79,50 @@ class MovieList extends Component {
 				dbRef.push(this.state.list[movie]);
 			}
 		}
+		// this resets the current api call list of movies after a new one has been added. I'm not happy about this and I'm sure there's a way to improve it
+		this.setState({
+			list: this.state.list.map((item) => {
+				if (item.imdbID === imdb) {
+					item.disabled = true;
+				}
+				return item;
+			}),
+			count: (this.state.count = this.state.count + 1),
+		});
+	};
+
+	removeNominationHandler = (imdb) => {
+		
+		const dbRef = firebase.database().ref();
+		dbRef.once('value', (snapshot) => {
+			const data = snapshot.val();
+			for (let firebaseKey in data) {
+				if (data[firebaseKey].imdbID === imdb) {
+					const itemRef = firebase.database().ref(firebaseKey);
+					itemRef.remove();
+				}
+			}
+		});
+		// this resets the current api call list of movies after a move has been removed. I'm not happy about this and I'm sure there's a way to improve it
+		this.setState({
+			list: this.state.list.map((item) => {
+				if (item.imdbID === imdb) {
+					item.disabled = false;
+				}
+				return item;
+			}),
+		});
 	};
 
 	render() {
 		return (
 			<Cards
 				list={this.state.list}
-				onButtonClick={this.nominateMovieHandler}
+				onNominate={this.nominateMovieHandler}
+				onRemove={this.removeNominationHandler}
 				storeImdbID={this.state.storeImdbID}
 				buttonText="Nominate"
-				disabled = {this.state.list.disabled}
+				disabled={this.state.list.disabled}
 			/>
 		);
 	}
