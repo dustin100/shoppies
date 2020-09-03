@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import MovieList from '../../../containers/MovieList/MovieList';
-import NominatedList from '../../../containers/NominatedList/NominatedList'
+import NominatedList from '../../../containers/NominatedList/NominatedList';
+import Instructions from '../../Instructions/Instructions';
+import { Route, withRouter } from 'react-router-dom';
 import classes from './SearchBar.module.css';
 
 class SearchBar extends Component {
@@ -13,6 +15,11 @@ class SearchBar extends Component {
 	}
 
 	handleChange = (e) => {
+		if (this.props.location.pathname !== '/results') {
+			this.props.history.push('/results');
+			console.log('e');
+		}
+
 		this.setState({
 			userInput: e.target.value.replace(/\s+/g, ' ').trim(),
 		});
@@ -22,6 +29,7 @@ class SearchBar extends Component {
 		e.preventDefault();
 		this.setState({
 			submittedSearch: this.state.userInput,
+			userInput: '',
 		});
 	};
 
@@ -29,7 +37,7 @@ class SearchBar extends Component {
 		return (
 			<Fragment>
 				<div className="wrapper">
-					<div className= {classes.SearchBar}>
+					<div className={classes.SearchBar}>
 						<form onSubmit={this.handleSubmit}>
 							<label className="visuallyHidden" htmlFor="site-search">
 								Search for movies:
@@ -51,11 +59,24 @@ class SearchBar extends Component {
 						</form>
 					</div>
 				</div>
-				<MovieList submittedSearch={this.state.submittedSearch} />
-				<NominatedList />
+				<Route path="/" exact component={Instructions} />
+				{/* <Instructions /> */}
+
+				<Route
+					path="/results"
+					render={(props) => (
+						<MovieList
+							{...props}
+							submittedSearch={this.state.submittedSearch}
+						/>
+					)}
+				/>
+				{/* // <MovieList submittedSearch={this.state.submittedSearch} /> */}
+				{/* <NominatedList /> */}
+				<Route path="/nominates" exact component={NominatedList} />
 			</Fragment>
 		);
 	}
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

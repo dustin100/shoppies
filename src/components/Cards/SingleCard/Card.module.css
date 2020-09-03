@@ -1,5 +1,12 @@
 .Card {
 	width: 7rem;
 	height: 100%;
-	margin: .3rem;
+	margin: 0.3rem;
+}
+
+.Card > div {
+	display: flex;
+	overflow: hidden;
+	font-size: 0.7rem;
+	justify-content: space-between;
 }

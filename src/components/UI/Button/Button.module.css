@@ -1,3 +1,4 @@
 .Button:disabled {
 	cursor: not-allowed;
+	background: rgba(243, 127, 127, 0.774);
 }

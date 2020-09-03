@@ -24,6 +24,7 @@ class MovieList extends Component {
 					s: this.props.submittedSearch,
 				},
 			});
+
 			// checks to see if item is already in the nomList.
 			// if it is it will be disabled via props so that it can't be added again
 			const editedObject = listRequest.data.Search.map((item) => {
@@ -92,7 +93,6 @@ class MovieList extends Component {
 	};
 
 	removeNominationHandler = (imdb) => {
-		
 		const dbRef = firebase.database().ref();
 		dbRef.once('value', (snapshot) => {
 			const data = snapshot.val();
