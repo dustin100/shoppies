@@ -9,7 +9,7 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<Fragment>
-					<Header title="Shoppies" tagLine="nominate your favorite movies" />
+					<Header title="the shoppies" tagLine="Nominate your top 5 movies!" />
 					<SearchBar />
 					<Footer />
 				</Fragment>

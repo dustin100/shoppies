@@ -1,11 +1,12 @@
 import React from 'react';
 import Card from './SingleCardVTwo/Card';
+import classes from './Cards.module.css'
 import posterDefault from '../../assets/no-poster-available.jpg';
 
 const cards = (props) => {
 	return (
 		<section className="wrapper">
-			<div className="something">
+			<div className={classes.Cards}>
 				{props.list.map(({ Title, imdbID, Poster, Year, disabled }) => {
 					// adds a default image if poster is missing
 					let usePoster = Poster;

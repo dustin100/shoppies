@@ -9,12 +9,20 @@ const card = (props) => {
 		<div className={classes.Card} tabIndex="0">
 			<CardTop Title={props.Title} Year={props.Year} />
 			<CardPoster Title={props.Title} Poster={props.usePoster} />
-			<div>
-				<Button clicked={props.onNominate} disabled={props.disabled}>
-					<i class="fas fa-vote-yea">Vote</i>
+			<div className={classes.ButtonGroup}>
+				<Button
+					theColor="Add"
+					clicked={props.onNominate}
+					disabled={props.disabled}
+				>
+					<i class="fas fa-plus"></i>
 				</Button>
-				<Button clicked={props.onRemove} disabled={!props.disabled}>
-					<i class="fas fa-times"></i>
+				<Button
+					theColor="Minus"
+					clicked={props.onRemove}
+					disabled={!props.disabled}
+				>
+					<i class="fas fa-minus"></i>
 				</Button>
 			</div>
 		</div>

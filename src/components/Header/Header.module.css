@@ -1,11 +1,24 @@
-.Header h1 {
-	text-align: center;
-	font-size: 2rem;
-	color: #5f8e3e;
-	margin: 10px 0;
+.Header {
+	background: #004f3f;
+	color: #fff;
 }
 
-.Header p {
+.Header a {
+	color: #fff;
+	cursor: pointer;
+}
+
+.Header h1 {
+	font-family: 'PT Sans', sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 1.8rem;
+	line-height: 31px;
+	text-align: center;
+	padding: .5rem 0;
+}
+
+.TagLine {
 	text-align: center;
 	margin-bottom: 10px;
 }
@@ -14,5 +27,11 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
-	margin: 10px 0;
+	margin-bottom: 1rem;
+	padding-top: 0.5rem;
+	align-items: center;
+}
+
+.Header i {
+	font-size: 1.4rem;
 }

@@ -43,17 +43,16 @@ class SearchBar extends Component {
 								Search for movies:
 							</label>
 							<input
-								className="searchSite"
 								type="search"
 								id="site-search"
 								name="query"
 								required
 								placeholder="Find Movies to Nominate"
-								aria-label="Search through site content"
+								aria-label="Search for movie"
 								onChange={this.handleChange}
 							/>
 
-							<button className="searchBtn" type="submit">
+							<button className={classes.SearchBtn} type="submit">
 								Search
 							</button>
 						</form>

@@ -7,16 +7,13 @@ const card = (props) => {
 	return (
 		<div className={classes.Card} tabIndex="0">
 			<CardPoster Title={props.Title} Poster={props.usePoster} />
-			<div>
-				<h2>
-					Title: <span>{props.Title}</span>
-				</h2>
-				<h4>
-					Release: <span>{props.Year}</span>
-				</h4>
-
+			<div className={classes.CardInfo}>
+				<div className="CardText">
+					<h2>{props.Title}</h2>
+					<h4>{props.Year}</h4>
+				</div>
 				<Button clicked={props.onRemove} disabled={props.disabled}>
-					Remove
+					REMOVE FROM LIST
 				</Button>
 			</div>
 		</div>

@@ -1,4 +1,16 @@
 .Button:disabled {
 	cursor: not-allowed;
-	background: rgba(243, 127, 127, 0.774);
+	opacity: 0.5;
+}
+
+.Add {
+	background: #ff4040;
+}
+
+.Minus {
+	background: #4e4e4e;
+}
+
+.DefaultColor {
+	background: #BBB9B9;
 }

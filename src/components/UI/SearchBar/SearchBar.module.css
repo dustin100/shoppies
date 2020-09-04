@@ -1,4 +1,16 @@
 .SearchBar {
 	text-align: center;
-    margin-bottom: 2rem;
+	margin-bottom: 2rem;
+}
+
+.SearchBar input {
+	height: 1.6rem;
+	border-radius: 3px;
+}
+
+.SearchBtn {
+	background: #008060;
+	color: #fff;
+	height: 2.1rem;
+	border-radius: 3px;
 }

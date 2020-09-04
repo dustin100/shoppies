@@ -1,6 +1,15 @@
 .CardTop {
-	font-size: 0.8rem;
+	font-style: normal;
+	font-weight: 500;
+	font-size: .6rem;
+	line-height: 11px;
+	margin-bottom: .2rem;
+}
+
+.CardTop h2 {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+	margin-bottom: 2px;
+
 }

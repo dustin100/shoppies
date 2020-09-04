@@ -1,5 +1,6 @@
 .Cards {
 	display: flex;
-    flex-wrap: wrap;
-
+	flex-wrap: wrap;
+	justify-content: space-between;
+	min-height: calc(80vh - 70px);
 }
