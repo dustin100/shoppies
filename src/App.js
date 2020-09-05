@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 class App extends Component {
 	render() {
 		return (
-			<BrowserRouter>
+			<BrowserRouter basename="https://dustin100.github.io/shoppies/">
 				<Fragment>
 					<Header title="the shoppies" tagLine="Nominate your top 5 movies!" />
 					<SearchBar />
