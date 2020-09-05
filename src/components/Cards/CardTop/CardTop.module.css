@@ -13,3 +13,16 @@
 	margin-bottom: 2px;
 
 }
+
+
+@media only screen and (min-width: 767px) {
+	
+	.CardTop {
+	font-size: .9rem;
+	line-height: 18px;
+
+
+	}
+
+	
+}

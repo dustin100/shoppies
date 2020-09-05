@@ -15,18 +15,15 @@ class SearchBar extends Component {
 	}
 
 	handleChange = (e) => {
-		if (this.props.location.pathname !== '/results') {
-		}
-
 		this.setState({
-			userInput: e.target.value.replace(/\s+/g, ' ').trim(),
+			userInput: e.target.value,
 		});
 	};
 
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.setState({
-			submittedSearch: this.state.userInput,
+			submittedSearch: this.state.userInput.replace(/\s+/g, ' ').trim(),
 			userInput: '',
 		});
 		this.props.history.push('/results');

@@ -1,6 +1,13 @@
 .Cards {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
 	min-height: calc(80vh - 70px);
+	margin: 0 auto;
+}
+
+@media only screen and (min-width: 767px) {
+	.Cards {
+		min-height: calc(90vh - 70px);
+	}
 }

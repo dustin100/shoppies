@@ -1,5 +1,5 @@
 .Instructions {
-	  min-height: calc(80vh - 70px);
+	min-height: calc(80vh - 70px);
 }
 
 .Instructions h2 {
@@ -8,10 +8,20 @@
 	font-weight: bold;
 	font-size: 1.5rem;
 	line-height: 2.5rem;
-    text-align: center;
-    color: #008060;
+	text-align: center;
+	color: #008060;
 }
 
 .Instructions li {
 	padding: 1rem 0;
+}
+
+@media only screen and (min-width: 767px) {
+	.Instructions {
+		min-height: calc(90vh - 70px);
+	}
+	.Instructions ol {
+		width: 50%;
+		margin: 0 auto;
+	}
 }

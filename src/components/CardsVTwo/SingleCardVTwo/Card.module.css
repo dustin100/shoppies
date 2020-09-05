@@ -39,4 +39,26 @@
 	padding: .8rem .8rem .4rem .8rem;
 }
 
+@media only screen and (min-width: 767px) {
+	.Card{
+	font-size: 1.1rem;
+	}
+
+	.Card button {
+	font-size: .8rem;
+	height: 1.6rem;
+	width: 50%;
+}
+
+.Card img {
+	width: 9rem;
+}
+.Card h4 {
+	font-size: 0.9rem;
+
+}
+
+	
+}
+
 

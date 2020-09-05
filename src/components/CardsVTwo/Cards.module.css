@@ -1,3 +1,12 @@
 .Cards {
 	min-height: calc(80vh - 70px);
 }
+
+@media only screen and (min-width: 767px) {
+	.Cards {
+	  min-height: calc(90vh - 70px);
+
+	}
+
+	
+}
