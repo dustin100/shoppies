@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import MovieList from '../../../containers/MovieList/MovieList';
 import NominatedList from '../../../containers/NominatedList/NominatedList';
 import Instructions from '../../Instructions/Instructions';
-import { Route, withRouter } from 'react-router-dom';
+import NotFound from '../../NotFound/NoutFound';
+import { Route, withRouter, Switch } from 'react-router-dom';
 import classes from './SearchBar.module.css';
 
 class SearchBar extends Component {
@@ -55,19 +56,22 @@ class SearchBar extends Component {
 						</form>
 					</div>
 				</div>
-				<Route path="/" exact component={Instructions} />
+				<Switch>
+					<Route path="/" exact component={Instructions} />
 
-				<Route
-					path="/results"
-					render={(props) => (
-						<MovieList
-							{...props}
-							submittedSearch={this.state.submittedSearch}
-						/>
-					)}
-				/>
+					<Route
+						path="/results"
+						render={(props) => (
+							<MovieList
+								{...props}
+								submittedSearch={this.state.submittedSearch}
+							/>
+						)}
+					/>
 
-				<Route path="/nominates" exact component={NominatedList} />
+					<Route path="/nominates" exact component={NominatedList} />
+					<Route component={NotFound} />
+				</Switch>
 			</Fragment>
 		);
 	}
