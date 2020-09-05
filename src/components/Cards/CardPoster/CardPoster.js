@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './CardPoster.module.css';
 
-const cardPoster = (props) => {
+const cardPoster = ({Poster, Title}) => {
 	return (
-		<img className={classes.CardPoster} src={props.Poster} alt={props.Title} />
+		<img className={classes.CardPoster} src={Poster} alt={Title} />
 	);
 };
 

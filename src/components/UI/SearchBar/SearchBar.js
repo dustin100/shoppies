@@ -56,7 +56,6 @@ class SearchBar extends Component {
 					</div>
 				</div>
 				<Route path="/" exact component={Instructions} />
-				{/* <Instructions /> */}
 
 				<Route
 					path="/results"
@@ -67,8 +66,7 @@ class SearchBar extends Component {
 						/>
 					)}
 				/>
-				{/* // <MovieList submittedSearch={this.state.submittedSearch} /> */}
-				{/* <NominatedList /> */}
+
 				<Route path="/nominates" exact component={NominatedList} />
 			</Fragment>
 		);

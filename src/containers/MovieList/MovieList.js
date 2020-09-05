@@ -30,8 +30,8 @@ class MovieList extends Component {
 				},
 			});
 
-			// checks to see if item is already in the nomList.
-			// if it is it will be disabled via props so that it can't be added again
+			// checks to see if movie is already in the nomList.
+			// if it is it will be disabled so that it can't be added again
 			const editedObject = listRequest.data.Search.map((item) => {
 				if (this.state.storeImdbID.includes(item.imdbID)) {
 					item.disabled = true;
@@ -95,7 +95,7 @@ class MovieList extends Component {
 				currentCount = currentCount + 1;
 			}
 		}
-		// this resets the current api call list of movies after a new one has been added. I'm not happy about this and I'm sure there's a way to improve it
+		// this resets the current api call list of movies after a new one has been added. I feel there is a more elegant solution...
 		this.setState({
 			list: this.state.list.map((item) => {
 				if (item.imdbID === imdb) {
@@ -120,7 +120,7 @@ class MovieList extends Component {
 				}
 			}
 		});
-		// this resets the current api call list of movies after a move has been removed. I'm not happy about this and I'm sure there's a way to improve it
+		// this resets the current api call list of movies after a move has been removed. I feel there is a more elegant solution...
 		this.setState({
 			list: this.state.list.map((item) => {
 				if (item.imdbID === imdb) {
