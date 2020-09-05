@@ -16,8 +16,6 @@ class SearchBar extends Component {
 
 	handleChange = (e) => {
 		if (this.props.location.pathname !== '/results') {
-			this.props.history.push('/results');
-			console.log('e');
 		}
 
 		this.setState({
@@ -31,6 +29,7 @@ class SearchBar extends Component {
 			submittedSearch: this.state.userInput,
 			userInput: '',
 		});
+		this.props.history.push('/results');
 	};
 
 	render() {
@@ -50,6 +49,7 @@ class SearchBar extends Component {
 								placeholder="Find Movies to Nominate"
 								aria-label="Search for movie"
 								onChange={this.handleChange}
+								value={this.state.userInput}
 							/>
 
 							<button className={classes.SearchBtn} type="submit">

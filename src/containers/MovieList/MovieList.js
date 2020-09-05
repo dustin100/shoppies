@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import Cards from '../../components/Cards/Cards';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import firebase from '../../firebase';
+import Banner from '../../components/Banner/Banner'
 
 class MovieList extends Component {
 	constructor(props) {
@@ -10,12 +12,15 @@ class MovieList extends Component {
 			list: [],
 			nomList: [],
 			storeImdbID: [],
+			loading: false,
+			error: false,
 			count: 0,
 		};
 	}
 
 	// Fetches Movies from http://www.omdbapi.com/
 	fetchMovieData = async () => {
+		this.setState({ loading: true });
 		try {
 			const listRequest = await axios.get('https://www.omdbapi.com/', {
 				params: {
@@ -38,9 +43,13 @@ class MovieList extends Component {
 
 			this.setState({
 				list: editedObject,
+				loading: false,
 			});
 		} catch (err) {
-			console.log(err);
+			this.setState({
+				error: true,
+				loading: false,
+			});
 		}
 	};
 
@@ -59,8 +68,12 @@ class MovieList extends Component {
 			this.setState({
 				nomList: nomsInArray,
 				storeImdbID: storeImdbID,
+				count: nomsInArray.length,
 			});
 		});
+		if (this.state.list) {
+			this.fetchMovieData();
+		}
 	}
 
 	componentDidUpdate(prevProps) {
@@ -71,6 +84,7 @@ class MovieList extends Component {
 
 	//  When nominate button is clicked it stores movie details in Firebase
 	nominateMovieHandler = (imdb) => {
+		let currentCount = this.state.count;
 		const dbRef = firebase.database().ref();
 		for (let movie in this.state.list) {
 			if (
@@ -78,6 +92,7 @@ class MovieList extends Component {
 				this.state.nomList.length < 5
 			) {
 				dbRef.push(this.state.list[movie]);
+				currentCount = currentCount + 1;
 			}
 		}
 		// this resets the current api call list of movies after a new one has been added. I'm not happy about this and I'm sure there's a way to improve it
@@ -88,11 +103,12 @@ class MovieList extends Component {
 				}
 				return item;
 			}),
-			count: (this.state.count = this.state.count + 1),
+			count: currentCount,
 		});
 	};
 
 	removeNominationHandler = (imdb) => {
+		let currentCount = this.state.count;
 		const dbRef = firebase.database().ref();
 		dbRef.once('value', (snapshot) => {
 			const data = snapshot.val();
@@ -100,6 +116,7 @@ class MovieList extends Component {
 				if (data[firebaseKey].imdbID === imdb) {
 					const itemRef = firebase.database().ref(firebaseKey);
 					itemRef.remove();
+					currentCount = currentCount - 1;
 				}
 			}
 		});
@@ -111,20 +128,30 @@ class MovieList extends Component {
 				}
 				return item;
 			}),
+			count: currentCount,
 		});
 	};
 
 	render() {
-		return (
-			<Cards
-				list={this.state.list}
-				onNominate={this.nominateMovieHandler}
-				onRemove={this.removeNominationHandler}
-				storeImdbID={this.state.storeImdbID}
-				buttonText="Nominate"
-				disabled={this.state.list.disabled}
-			/>
-		);
+		let cards = <Spinner />;
+		let banner = null;
+		if(this.state.count === 5) {
+			banner = <Banner />
+		}
+		if (!this.state.loading) {
+			cards = (
+				<Cards
+					list={this.state.list}
+					onNominate={this.nominateMovieHandler}
+					onRemove={this.removeNominationHandler}
+					storeImdbID={this.state.storeImdbID}
+					buttonText="Nominate"
+					disabled={this.state.list.disabled}
+					count={this.state.count}
+				/>
+			);
+		}
+		return <Fragment>{banner}{cards}</Fragment>;
 	}
 }
 

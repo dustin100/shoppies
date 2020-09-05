@@ -15,14 +15,14 @@ const card = (props) => {
 					clicked={props.onNominate}
 					disabled={props.disabled}
 				>
-					<i class="fas fa-plus"></i>
+					<i className="fas fa-plus"></i>
 				</Button>
 				<Button
 					theColor="Minus"
 					clicked={props.onRemove}
 					disabled={!props.disabled}
 				>
-					<i class="fas fa-minus"></i>
+					<i className="fas fa-minus"></i>
 				</Button>
 			</div>
 		</div>

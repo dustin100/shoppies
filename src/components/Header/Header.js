@@ -9,11 +9,11 @@ const Header = ({ title, tagLine }) => {
 				<div className="wrapper">
 					<nav>
 						<Link to="/">
-							<i class="fas fa-home"></i>
+							<i className="fas fa-home"></i>
 						</Link>
 						<h1>{title}</h1>
 						<Link to="/nominates">
-							<i class="fas fa-shopping-bag"></i>
+							<i className="fas fa-shopping-bag"></i>
 						</Link>
 					</nav>
 				</div>
