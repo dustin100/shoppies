@@ -50,7 +50,7 @@ class MovieList extends Component {
 			this.setState({
 				error: true,
 				loading: false,
-				list: null,
+				list: [],
 			});
 		}
 	};
@@ -145,7 +145,7 @@ class MovieList extends Component {
 		) : (
 			<Spinner />
 		);
-		if (this.state.list) {
+		if (this.state.list.length) {
 			cards = (
 				<Cards
 					list={this.state.list}
