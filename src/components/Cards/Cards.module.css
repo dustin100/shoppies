@@ -3,7 +3,7 @@
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	min-height: calc(80vh - 70px);
-	margin: 0 auto;
+	
 }
 
 @media only screen and (min-width: 767px) {

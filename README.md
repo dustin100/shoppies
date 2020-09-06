@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## UX Developer Intern & Web Developer Intern Challenge - Winter 2021
 
-live link .........
+- Live link: https://dustin100.github.io/shoppies/ 
 
 ### The Shoppies: Movie awards for entrepreneurs
 
@@ -28,9 +28,15 @@ We'd like a simple to use interface that makes it easy to:
   If a search result has already been nominated, disable its nominate button.
 - Display a banner when the user has 5 nominations.
 
-### Extras
+### Extras / Improvements
 
-- Save nomination lists if the user leaves the page
-- Animations for loading, adding/deleting movies, notifications
-- Create shareable links
-- more ...
+- Update cart to show current number of nominations 
+- Animation when adding a new movies to cart
+- Use Grid over Flexbox for more control over cards
+- Disable all add/remove buttons when user hits 5 nominations
+- Convert classes to hooks
+
+### Bug Fixes
+- Warning: Hash history cannot PUSH the same path
+- Warning: Can't perform a React state update on an unmounted component.
+

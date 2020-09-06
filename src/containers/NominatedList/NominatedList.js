@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cards from '../../components/CardsVTwo/CardsVTwo'
+import Cards from '../../components/CardsVTwo/CardsVTwo';
 import firebase from '../../firebase';
 
 class NominatedList extends Component {
@@ -51,7 +51,7 @@ class NominatedList extends Component {
 				nomList={this.state.nomList}
 				storeImdbID={this.state.storeImdbID}
 				buttonText="Remove"
-				disabled = {false}
+				disabled={false}
 			/>
 		);
 	}

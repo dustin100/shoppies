@@ -21,8 +21,9 @@ class MovieList extends Component {
 
 	// Fetches Movies from http://www.omdbapi.com/
 	fetchMovieData = async () => {
-		this.setState({ loading: true, error: false });
 		try {
+			this.setState({ loading: true, error: false });
+
 			const listRequest = await axios.get('https://www.omdbapi.com/', {
 				params: {
 					apikey: '4790b397',

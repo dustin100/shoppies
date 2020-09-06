@@ -2,16 +2,16 @@
 	background: #004f3f;
 	color: #fff;
 	text-align: center;
-    margin: 1rem;
-    padding: 1rem;
+	margin: 1rem;
+	padding: 1rem;
 }
 
 .Banner h2 {
-    font-size: 1.2rem;
-    margin-bottom: .5rem;
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
 }
 
 .Banner p {
-    font-size: 0.8rem;
-    line-height: 1rem;
+	font-size: 0.8rem;
+	line-height: 1rem;
 }
