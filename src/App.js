@@ -7,7 +7,7 @@ import { BrowserRouter, HashRouter } from 'react-router-dom';
 class App extends Component {
 	render() {
 		return (
-			<HashRouter basename="/shoppies/">
+			<HashRouter>
 				<Fragment>
 					<Header title="the shoppies" tagLine="Nominate your top 5 movies!" />
 					<SearchBar />
