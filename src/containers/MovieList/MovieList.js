@@ -3,7 +3,8 @@ import axios from 'axios';
 import Cards from '../../components/Cards/Cards';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import firebase from '../../firebase';
-import Banner from '../../components/Banner/Banner'
+import Banner from '../../components/Banner/Banner';
+import Errors from '../../components/Errors/Errors';
 
 class MovieList extends Component {
 	constructor(props) {
@@ -20,7 +21,7 @@ class MovieList extends Component {
 
 	// Fetches Movies from http://www.omdbapi.com/
 	fetchMovieData = async () => {
-		this.setState({ loading: true });
+		this.setState({ loading: true, error: false });
 		try {
 			const listRequest = await axios.get('https://www.omdbapi.com/', {
 				params: {
@@ -49,6 +50,7 @@ class MovieList extends Component {
 			this.setState({
 				error: true,
 				loading: false,
+				list: null,
 			});
 		}
 	};
@@ -133,12 +135,17 @@ class MovieList extends Component {
 	};
 
 	render() {
-		let cards = <Spinner />;
 		let banner = null;
-		if(this.state.count === 5) {
-			banner = <Banner />
+		if (this.state.count === 5) {
+			banner = <Banner />;
 		}
-		if (!this.state.loading) {
+
+		let cards = this.state.error ? (
+			<Errors word={this.props.submittedSearch} />
+		) : (
+			<Spinner />
+		);
+		if (this.state.list) {
 			cards = (
 				<Cards
 					list={this.state.list}
@@ -151,7 +158,12 @@ class MovieList extends Component {
 				/>
 			);
 		}
-		return <Fragment>{banner}{cards}</Fragment>;
+		return (
+			<Fragment>
+				{banner}
+				{cards}
+			</Fragment>
+		);
 	}
 }
 
