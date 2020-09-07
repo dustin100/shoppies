@@ -34,3 +34,19 @@
 
 	
 }
+
+@media only screen and (min-width: 1050px) {
+	.Card {
+		width: 13rem;
+	}
+
+	
+}
+
+@media only screen and (min-width: 1600px) {
+	.Card {
+		width: 15rem;
+	}
+
+	
+}

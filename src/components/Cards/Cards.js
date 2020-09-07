@@ -24,7 +24,6 @@ const cards = (props) => {
 							onNominate={() => props.onNominate(imdbID)}
 							onRemove={() => props.onRemove(imdbID)}
 							clicked={() => props.onButtonClick(imdbID)}
-							
 						/>
 					);
 				})}

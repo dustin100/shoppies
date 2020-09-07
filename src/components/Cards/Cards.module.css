@@ -1,13 +1,30 @@
 .Cards {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
 	justify-content: flex-start;
 	min-height: calc(80vh - 70px);
-	
+	grid-template-columns: repeat(3, 1fr);
+	height: 100%;
+	grid-template-rows: auto;
+	grid-gap: 0.5rem;
+	justify-items: center;
+}
+
+@media only screen and (min-width: 640px) {
+	.Cards {
+	grid-template-columns: repeat(4, 1fr);
+		
+	}
 }
 
 @media only screen and (min-width: 767px) {
 	.Cards {
 		min-height: calc(90vh - 70px);
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.Cards {
+	grid-template-columns: repeat(5, 1fr);
+		
 	}
 }
