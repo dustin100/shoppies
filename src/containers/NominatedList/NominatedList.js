@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Cards from '../../components/CardsVTwo/CardsVTwo';
+import classes from './NominatedList.module.css';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import firebase from '../../firebase';
 
 class NominatedList extends Component {
@@ -8,6 +10,7 @@ class NominatedList extends Component {
 		this.state = {
 			storeImdbID: [],
 			nomList: [],
+			loading: true,
 		};
 	}
 
@@ -26,6 +29,7 @@ class NominatedList extends Component {
 			this.setState({
 				nomList: nomsInArray,
 				storeImdbID: storeImdbID,
+				loading: false,
 			});
 		});
 	}
@@ -44,15 +48,30 @@ class NominatedList extends Component {
 	};
 
 	render() {
+		let cards = this.state.loading ? (
+			<Spinner />
+		) : (
+			<p className={classes.NominatedList}>
+				Start by searching for a movie to nominate
+			</p>
+		);
+		if (this.state.nomList.length > 0) {
+			cards = (
+				<Cards
+					list={this.state.nomList}
+					onRemove={this.removeNominationHandler}
+					nomList={this.state.nomList}
+					storeImdbID={this.state.storeImdbID}
+					buttonText="Remove"
+					disabled={false}
+				/>
+			);
+		}
 		return (
-			<Cards
-				list={this.state.nomList}
-				onRemove={this.removeNominationHandler}
-				nomList={this.state.nomList}
-				storeImdbID={this.state.storeImdbID}
-				buttonText="Remove"
-				disabled={false}
-			/>
+			<Fragment>
+				<h2 className={classes.NominatedListHeader}>Your Nominations</h2>
+				{cards}
+			</Fragment>
 		);
 	}
 }

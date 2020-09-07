@@ -1,0 +1,16 @@
+.NominatedList {
+    text-align: center;
+    padding: 1rem;
+	min-height: calc(80vh - 70px);
+
+}
+
+.NominatedListHeader {
+	font-family: Noto Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+    color: #008060;
+    text-align: center;
+}
