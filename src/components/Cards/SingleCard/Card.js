@@ -6,7 +6,7 @@ import classes from './Card.module.css';
 
 const card = (props) => {
 	return (
-		<div className={classes.Card} tabIndex="0">
+		<div className={classes.Card}>
 			<CardTop Title={props.Title} Year={props.Year} />
 			<CardPoster Title={props.Title} Poster={props.usePoster} />
 			<div className={classes.ButtonGroup}>

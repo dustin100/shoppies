@@ -1,7 +1,24 @@
+.Button {
+	 
+		transition: all 0.2s ease-in-out;
+	
+}
+.Button:hover,.Button:focus {
+	transform: scale(1.05);
+}
+
 .Button:disabled {
 	cursor: not-allowed;
 	opacity: 0.5;
 }
+
+.Button:disabled:hover {
+	cursor: not-allowed;
+	opacity: 0.5;
+	transform: scale(1);
+
+}
+
 
 .Add {
 	background: #ff4040;
@@ -12,5 +29,5 @@
 }
 
 .DefaultColor {
-	background: #BBB9B9;
+	background: #bbb9b9;
 }

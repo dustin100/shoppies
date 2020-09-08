@@ -19,7 +19,9 @@
 	padding: 0.3rem 0;
 	color: #fff;
 }
-
+.Card img {
+	flex: 1;
+}
 .Add {
 	background: #ff4040;
 }
