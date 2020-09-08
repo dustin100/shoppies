@@ -2,9 +2,11 @@
 	width: 7rem;
 	height: 100%;
 	margin-right: 0.3rem;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.8rem;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
 }
-
 
 .ButtonGroup {
 	display: flex;
@@ -25,28 +27,21 @@
 .Minus {
 	background: #4e4e4e;
 }
-	
 
 @media only screen and (min-width: 767px) {
 	.Card {
 		width: 10rem;
 	}
-
-	
 }
 
 @media only screen and (min-width: 1050px) {
 	.Card {
 		width: 13rem;
 	}
-
-	
 }
 
 @media only screen and (min-width: 1600px) {
 	.Card {
 		width: 15rem;
 	}
-
-	
 }
