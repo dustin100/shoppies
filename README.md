@@ -32,6 +32,7 @@ We'd like a simple to use interface that makes it easy to:
 
 - Update cart to show current number of nominations
 - Animation when adding a new movies to cart
+- Sliding animation for switching pages
 - Disable all add/remove buttons when user hits 5 nominations
 - Convert classes to hooks
 

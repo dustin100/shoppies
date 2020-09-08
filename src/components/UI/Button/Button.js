@@ -8,9 +8,12 @@ const button = (props) => {
 		allClasses.push(classes.Add);
 	} else if (props.theColor === 'Minus') {
 		allClasses.push(classes.Minus);
+	}else if (props.theColor === 'Final') {
+		allClasses.push(classes.Final);
 	}else {
 		allClasses.push(classes.DefaultColor);
 	}
+
 	return (
 		<button
 			className={allClasses.join(' ')}

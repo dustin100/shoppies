@@ -3,3 +3,8 @@
 	padding: 1rem;
 	min-height: calc(80vh - 70px);
 }
+
+.Final {
+	text-align: center;
+	margin: 1rem 0;
+}
