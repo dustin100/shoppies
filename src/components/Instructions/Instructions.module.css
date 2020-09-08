@@ -2,15 +2,6 @@
 	min-height: calc(80vh - 70px);
 }
 
-.Instructions h2 {
-	font-family: Noto Sans;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 1.5rem;
-	line-height: 2.5rem;
-	text-align: center;
-	color: #008060;
-}
 
 .Instructions li {
 	padding: 1rem 0;

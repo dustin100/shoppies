@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from './Instructions.module.css';
+import HeadingTwo from '../HeadingTwo/HeadingTwo'
 
 let attachedClasses = [classes.Instructions, 'wrapper'];
 const instructions = (props) => {
 	return (
 		<div className={attachedClasses.join(' ')}>
-			<h2>How it Works</h2>
+			<HeadingTwo heading = "How it Works"/>
 			<ol>
 				<li>1. Search for your favorite movies.</li>
 				<li>2. Add movies to your nomination list. </li>

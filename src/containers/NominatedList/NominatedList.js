@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Cards from '../../components/CardsVTwo/CardsVTwo';
 import classes from './NominatedList.module.css';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import HeadingTwo from '../../components/HeadingTwo/HeadingTwo';
 import firebase from '../../firebase';
 
 class NominatedList extends Component {
@@ -69,7 +70,7 @@ class NominatedList extends Component {
 		}
 		return (
 			<Fragment>
-				<h2 className={classes.NominatedListHeader}>Your Nominations</h2>
+				<HeadingTwo heading="Your Nominations" />
 				{cards}
 			</Fragment>
 		);
